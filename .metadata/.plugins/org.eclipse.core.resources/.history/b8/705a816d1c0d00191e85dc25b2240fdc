@@ -1,0 +1,26 @@
+package zda.git;
+
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+class Test2Swing extends JFrame {
+	public static void main(String[] a) {
+		new Test2Swing();
+	}
+
+	Test2Swing() {
+		setLayout(new FlowLayout());
+		JButton b = new JButton("Przycisk 1");
+		JLabel l = new JLabel("Etykieta");
+		JTextField tf = new JTextField("Pole tekstowe");
+		getContentPane().add(b);
+		getContentPane().add(l);
+		getContentPane().add(tf);
+		pack();
+		setVisible(true);
+	}
+}

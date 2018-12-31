@@ -1,0 +1,10 @@
+package zda.git;
+
+public class Test2Swing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
