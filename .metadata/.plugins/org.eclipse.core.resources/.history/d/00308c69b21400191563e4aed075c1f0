@@ -1,0 +1,30 @@
+
+public class Faktura extends Klient{
+	private static int numerFaktury;
+	private static String data;
+	private static Double ogolem;
+
+
+	public Faktura(String data, int numerFaktury, Double ogolem, String imie, String nazwisko, String nip) {
+		super(imie, nazwisko, nip);
+		this.numerFaktury = numerFaktury;
+		this.data = data;
+		this.ogolem = ogolem;
+
+	}
+	public Faktura(){}
+	public int getNumerFaktury()
+	{
+		return numerFaktury;
+	}
+	public String getData()
+	{
+		return data;
+	}
+	public Double getOgolem()
+	{
+		return ogolem;
+	}
+
+
+}

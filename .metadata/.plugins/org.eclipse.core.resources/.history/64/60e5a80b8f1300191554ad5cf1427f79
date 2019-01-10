@@ -1,0 +1,88 @@
+import java.awt.GridLayout;
+import java.util.HashMap;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+
+
+
+public class WstawPozFaktury extends JFrame {
+
+	
+	private static  final int 
+	WINDOW_LOCATION_X = 250,
+	WINDOW_LOCATION_Y = 50,
+	WINDOW_WIDTH = 550,
+	WINDOW_HEIGHT = 500,
+	WINDOW_GRID_ROWS = 19,
+	WINDOW_GRID_COLS = 2;
+	
+	private static final JLabel 
+	kodProduktu = new JLabel("Kod produktu", JLabel.LEFT),
+	nazwaProduktu = new JLabel("Nazwa produktu", JLabel.LEFT), 
+	ilosc = new JLabel("Ilość", JLabel.LEFT),
+	cenaNetto = new JLabel("Cena netto", JLabel.LEFT), 
+	vat = new JLabel("Vat", JLabel.LEFT);
+	
+	private static final JLabel[] 
+			label_array = { kodProduktu, nazwaProduktu, ilosc, cenaNetto, vat };
+	
+	public static final JTextField 
+	txt_kodProduktu = new JTextField(""), 
+	txt_nazwaProduktu = new JTextField(""),
+	txt_ilosc = new JTextField(""), 
+	txt_cenaNetto = new JTextField(""),
+	txt_vat = new JTextField("");
+	
+//	kontener do jtextfield
+	public static JTextField[] jtxt_array = { txt_kodProduktu, txt_nazwaProduktu, txt_ilosc, txt_cenaNetto, txt_vat };
+	
+//	kontener do arraya z jtxtfield
+	static HashMap contener_nabywcow = new HashMap();
+	
+	public static JButton
+	zamknij = new JButton("zamknij"),
+	wyczysc = new JButton("wyczyść"),
+	zapisz  = new JButton("zapisz"),
+	wstaw = new JButton("wstaw"),
+	usun = new JButton("usuń");
+
+	public static JComboBox cbox = new JComboBox(); 
+
+	public WstawPozFaktury() {
+		JFrame frame = new JFrame("Wstaw pozycję do faktury");
+		frame.setSize(300, 300);
+		frame.setLocation(500, 300);
+		JPanel panel = new JPanel();
+		
+		for(int i=0;i < label_array.length; i++) {
+			panel.add(label_array[i]);
+			jtxt_array[i].setColumns(2);
+			panel.add(jtxt_array[i]);
+		}
+		
+		panel.setLayout(new GridLayout(WINDOW_GRID_ROWS,WINDOW_GRID_COLS));
+		frame.setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+		frame.setLocation(WINDOW_LOCATION_X,WINDOW_LOCATION_Y);
+		
+		panel.add(wyczysc);
+		panel.add(zapisz);
+		panel.add(zamknij);
+		panel.add(cbox);
+		panel.add(usun);
+		
+		
+		
+		
+		
+		
+		frame.add(panel);
+		frame.setVisible(true);
+
+	}
+}

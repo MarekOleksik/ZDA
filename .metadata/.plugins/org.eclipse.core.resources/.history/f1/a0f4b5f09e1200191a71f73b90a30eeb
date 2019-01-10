@@ -1,0 +1,18 @@
+
+public class Faktura {
+	private int numerFaktury;
+	private String data;
+	private Double cena;
+	private int ilosc;
+	
+	public Faktura(int numerFaktury, String data, Double cena, int ilosc)
+	{
+		this.numerFaktury = numerFaktury;
+		this.data = data;
+		this.cena = cena;
+		this.ilosc = ilosc;
+		
+	}
+	
+
+}

@@ -1,0 +1,12 @@
+import javax.swing.JFrame;
+
+public class WstawPozFaktury extends JFrame {
+
+	public WstawPozFaktury() {
+		JFrame frame = new JFrame("Wstaw pozycjê do faktury");
+		frame.setSize(300, 300);
+		frame.setLocation(500, 300);
+		frame.setVisible(true);
+		//frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

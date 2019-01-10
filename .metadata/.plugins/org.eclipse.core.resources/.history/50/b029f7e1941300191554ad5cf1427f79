@@ -1,0 +1,21 @@
+
+public class Produkty {
+	private static String kodProduktu;
+	private static String nazwaProduktu;
+
+	public Produkty() {
+	};
+
+	public Produkty(String kodProduktu, String nazwaProduktu) {
+		this.kodProduktu = kodProduktu;
+		this.nazwaProduktu = nazwaProduktu;
+	}
+
+	public String getNazwaProduktu() {
+		return nazwaProduktu;
+	}
+
+	public String getKodProduktu() {
+		return kodProduktu;
+	}
+}

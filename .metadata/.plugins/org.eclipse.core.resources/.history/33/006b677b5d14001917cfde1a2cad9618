@@ -1,0 +1,27 @@
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class OknoFaktury extends JFrame {
+
+	public OknoFaktury() {
+		
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame frame = new JFrame("Program do wystawiania faktur");
+		frame.setSize(700, 750);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		
+		
+		
+		
+		frame.add(panel);
+		
+		pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

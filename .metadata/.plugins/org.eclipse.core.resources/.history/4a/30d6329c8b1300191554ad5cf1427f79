@@ -1,0 +1,53 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class WstawPozFaktury extends JFrame {
+
+	private static final JLabel
+	lnetto = new JLabel("Kwota netto",JLabel.LEFT),
+	nazwaProduktu = new JLabel("Nazwa produktu",JLabel.LEFT),
+	k_adres = new JLabel("Adres",JLabel.LEFT),
+	k_nip = new JLabel("Nip",JLabel.LEFT),
+	k_kod = new JLabel("Kod",JLabel.LEFT),
+	k_miejsc = new JLabel("Miasto",JLabel.LEFT),
+	pr_nazwa = new JLabel("Nazwa towaru/usługi",JLabel.LEFT),
+	j_m = new JLabel("Jednoska miary", JLabel.LEFT),
+	cena_jedn = new JLabel("Cena jednostkowa",JLabel.LEFT),
+	ilosc = new JLabel("Ilość",JLabel.LEFT),
+	vat = new JLabel("vat",JLabel.LEFT),
+	sp_platnosci = new JLabel("Sposób zapłaty",JLabel.LEFT),
+	termin_platnosci = new JLabel("Termin płatności",JLabel.LEFT),
+	data_wystawienia = new JLabel("Data wystawienia",JLabel.LEFT),
+	slownie = new JLabel("Do zapłaty słownie",JLabel.LEFT),
+	nr_f = new JLabel("Faktura Numer",JLabel.LEFT);
+	
+	
+	public WstawPozFaktury() {
+		JFrame frame = new JFrame("Wstaw pozycję do faktury");
+		frame.setSize(300, 300);
+		frame.setLocation(500, 300);
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		frame.setVisible(true);
+
+	}
+}

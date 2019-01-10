@@ -1,0 +1,27 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class WstawPozFaktury extends JFrame {
+
+	private static final JLabel kodProduktu = new JLabel("Kod produktu", JLabel.LEFT),
+			nazwaProduktu = new JLabel("Nazwa produktu", JLabel.LEFT), ilosc = new JLabel("Ilość", JLabel.LEFT),
+			cenaNetto = new JLabel("Cena netto", JLabel.LEFT), vat = new JLabel("Vat", JLabel.LEFT);
+	private static final JLabel[] label_array = { kodProduktu, nazwaProduktu, ilosc, cenaNetto, vat };
+	public static final JTextField txt_kodProduktu = new JTextField(""), txt_nazwaProduktu = new JTextField(""),
+			txt_ilosc = new JTextField(""), txt_vat = new JTextField("");
+	public static JButton
+	zamknij = new JButton("zamknij"),
+	wyczysc = new JButton("wyczyść"),
+	wstaw  = new JButton("wstaw");
+
+	public WstawPozFaktury() {
+		JFrame frame = new JFrame("Wstaw pozycję do faktury");
+		frame.setSize(300, 300);
+		frame.setLocation(500, 300);
+
+		frame.setVisible(true);
+
+	}
+}

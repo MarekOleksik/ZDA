@@ -1,0 +1,39 @@
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTable;
+
+public class OknoFaktury extends JFrame {
+
+	public static void main(String[] args) {
+		new OknoFaktury();
+	}
+	
+	private String[] kolumny;
+	private Object[][] wiersze;
+	private JTable tableFakt;
+	private static final JLabel listaFaktur = new JLabel("Lista faktur:");
+	
+	public OknoFaktury() {
+		
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame frame = new JFrame("Program do wystawiania faktur");
+		frame.setSize(700, 750);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		
+		JPanel panel1 = new JPanel();
+		panel1.add(listaFaktur);
+		
+		panel.add(panel1);
+		frame.add(panel);
+		
+		pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

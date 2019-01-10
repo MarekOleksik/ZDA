@@ -1,0 +1,169 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.HashMap;
+
+public class WstawPozFaktury extends JFrame {  
+	private static  final int 
+	WINDOW_LOCATION_X = 250,
+	WINDOW_LOCATION_Y = 50,
+	WINDOW_WIDTH = 550,
+	WINDOW_HEIGHT = 500,
+	WINDOW_GRID_ROWS = 19,
+	WINDOW_GRID_COLS = 2;
+	
+	/* elementy okna */
+//	przyciski
+	public static JButton
+	//generuj = new JButton("generuj fakture"),
+	zamknij = new JButton("zamknij"),
+	wyczysc = new JButton("wyczyść"),
+	zapisz  = new JButton("zapisz"),
+	wczytaj = new JButton("wczytaj"),
+	usun = new JButton("usuń");
+	
+//etykiety
+	private static final JLabel
+	lnetto = new JLabel("Kwota netto",JLabel.LEFT),
+	k_nazwa = new JLabel("Nazwa nabywcy",JLabel.LEFT),
+	k_adres = new JLabel("Adres",JLabel.LEFT),
+	k_nip = new JLabel("Nip",JLabel.LEFT),
+	k_kod = new JLabel("Kod",JLabel.LEFT),
+	k_miejsc = new JLabel("Miasto",JLabel.LEFT),
+	pr_nazwa = new JLabel("Nazwa towaru/usługi",JLabel.LEFT),
+	j_m = new JLabel("Jednoska miary", JLabel.LEFT),
+	cena_jedn = new JLabel("Cena jednostkowa",JLabel.LEFT),
+	ilosc = new JLabel("Ilość",JLabel.LEFT),
+	vat = new JLabel("vat",JLabel.LEFT),
+	sp_platnosci = new JLabel("Sposób zapłaty",JLabel.LEFT),
+	termin_platnosci = new JLabel("Termin płatności",JLabel.LEFT),
+	data_wystawienia = new JLabel("Data wystawienia",JLabel.LEFT),
+	slownie = new JLabel("Do zapłaty słownie",JLabel.LEFT),
+	nr_f = new JLabel("Faktura Numer",JLabel.LEFT);
+	
+//	kontenerek do etykiet
+	private static final JLabel[] label_array = { 
+	nr_f,data_wystawienia,k_nazwa,k_adres,k_kod,k_miejsc,k_nip,pr_nazwa,cena_jedn, j_m,
+	ilosc,lnetto ,vat,sp_platnosci,termin_platnosci,slownie};
+//	pola tekstowe
+	public static final JTextField 
+	array_nazwa = new JTextField(""),
+	txt_netto = new JTextField(""), 
+	txt_k_nazwa = new JTextField(""),
+	txt_k_adres = new JTextField(""),
+	txt_nip = new JTextField(""),
+	txt_k_kod = new JTextField(""),
+	txt_k_miejsc = new JTextField(""),
+	txt_pr_nazwa = new JTextField(""),
+	txt_j_m = new JTextField(""),
+	txt_cena_jedn = new JTextField(""),	
+	txt_ilosc = new JTextField(""),	
+	txt_vat = new JTextField(""),	
+	txt_sp_platnosci = new JTextField(""),
+	txt_termin_platnosci = new JTextField(""),
+	txt_data_wystawienia = new JTextField(""),
+	txt_nr_f = new JTextField(""),
+	txt_slownie = new JTextField("");
+	
+	
+	
+
+//	kontenerek do jtextfield
+	public static JTextField[] jtxt_array = { 
+			txt_nr_f,txt_data_wystawienia,txt_k_nazwa,txt_k_adres,txt_k_kod,txt_k_miejsc,txt_nip,txt_pr_nazwa,txt_cena_jedn,txt_j_m,
+			txt_ilosc,txt_netto ,txt_vat,txt_sp_platnosci,txt_termin_platnosci,
+			txt_slownie};
+//	wyswietla liste z pojedynczym wyborem
+	public static JComboBox cbox = new JComboBox(); 
+
+//	kontener do arraya z jtxtfield
+	static HashMap contener_nabywcow = new HashMap();
+	
+/**
+ * tworzy główne okno aplikacji
+ *	@param String s - tytul okna
+ *
+ */
+	public WstawPozFaktury(String s) {
+		this.setTitle(s);
+//		dodaje akcje do przycisków
+		Akcje akcje = new Akcje();
+		}
+	public static void main(String[] args) {
+		/* ustawia wygląd (musi być przed stworzeniem JFrame */
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		Okno ramka = new Okno("Program Fakturka made by Łukasz Kuczera");
+		/* zamykanie programu po zamknięciu okna */
+		ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		/* dodawanie przycisków do ramki */
+		Container cp = ramka.getContentPane();
+//		przyciski i opisy z kontenerków
+		
+		for(int i=0;i < label_array.length; i++) {
+			cp.add(label_array[i]);
+			jtxt_array[i].setColumns(2);
+			cp.add(jtxt_array[i]);
+		}
+
+		try {
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("tablica_nabywcow.txt"));
+			contener_nabywcow = (HashMap)in.readObject();
+			in.close();
+			
+			// dodaje elementy do listy
+			cbox.addItem("wybierz odbiorce");
+			String[] t = (String[])contener_nabywcow.keySet().toArray(new String[contener_nabywcow.size()]);
+			for(int i=0;i<t.length;i++) 
+				cbox.addItem(t[i]);
+
+			cbox.setSelectedItem("wybierz odbiorce");
+		}
+		catch(IOException E) {
+			try {
+				cbox.addItem("wybierz odbiorce");
+				ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("tablica_nabywcow.txt"));
+				out.writeObject(contener_nabywcow);
+				out.close();
+			}
+			catch (IOException e) {
+				JOptionPane.showMessageDialog(null,"Wystąpił błąd zapisu: "+e,"Błąd",JOptionPane.ERROR_MESSAGE);
+			}
+			
+		}
+		catch(Exception E) {
+			JOptionPane.showMessageDialog(null,"Wystąpił błąd: "+E,"Błąd",JOptionPane.ERROR_MESSAGE);
+		}
+
+
+
+//		dodaje przyciski i liste do panelu zawartosci
+		//cp.add(generuj);
+		cp.add(wyczysc);
+		cp.add(zapisz);
+		cp.add(zamknij);
+		cp.add(cbox);
+		cp.add(usun);
+		/* menu */
+		Menu menu = new Menu();
+		menu.updateUI();
+		ramka.setJMenuBar(menu);
+		
+		/* ustawienia wygl�du */
+		cp.setLayout(new GridLayout(WINDOW_GRID_ROWS,WINDOW_GRID_COLS));
+		ramka.setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
+		ramka.setLocation(WINDOW_LOCATION_X,WINDOW_LOCATION_Y);
+		
+		/* tworzenie i wyswietlanie okienka */
+		ramka.pack();
+		ramka.setVisible(true);
+		
+
+		
+	}
+		
+}
+
+
+	

@@ -1,0 +1,27 @@
+
+public class Klient {
+
+	private static String nazwisko;
+	private static String imie;
+	private static int nip;
+
+	public Klient() {
+	};
+
+	public Klient(String nazwisko, String imie, int nip) {
+		this.nazwisko = nazwisko;
+		this.imie = imie;
+		this.nip = nip;
+	}
+
+	public String getNazwisko() {
+		return nazwisko;
+	}
+
+	public String getImie() {
+		return imie;
+	}
+	public int getNip(){
+		return nip;
+	}
+}

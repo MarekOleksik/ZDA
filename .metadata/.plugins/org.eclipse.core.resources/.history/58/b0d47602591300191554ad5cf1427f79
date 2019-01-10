@@ -1,0 +1,33 @@
+
+public class Faktura extends Produkty {
+	private static int numerFaktury;
+	private static String data;
+	private static Double cena;
+	private static int ilosc;
+
+	public Faktura(String nazwaProduktu, String kodProduktu, int numerFaktury, String data, Double cena, int ilosc) {
+		super(nazwaProduktu, kodProduktu);
+		this.numerFaktury = numerFaktury;
+		this.data = data;
+		this.cena = cena;
+		this.ilosc = ilosc;
+	}
+	public Faktura(){}
+	public int getNumerFaktury()
+	{
+		return numerFaktury;
+	}
+	public String getData()
+	{
+		return data;
+	}
+	public Double getCena()
+	{
+		return cena;
+	}
+	public int getIlosc()
+	{
+		return ilosc;
+	}
+
+}

@@ -1,0 +1,64 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+public class OknoFaktury extends JFrame {
+
+	public static void main(String[] args) {
+		new OknoFaktury();
+	}
+	
+	private String[] kolumny;
+	private Object[][] wiersze;
+	private JTable tableFakt;
+	private DefaultTableModel tableModel;
+
+	private static final JLabel listaFaktur = new JLabel("Lista faktur:");
+	
+	public OknoFaktury() {
+		
+		JFrame.setDefaultLookAndFeelDecorated(true);
+		JFrame frame = new JFrame("Program do wystawiania faktur");
+		frame.setSize(700, 750);
+		frame.setResizable(false);
+		frame.setLocationRelativeTo(null);
+
+		JPanel panel = new JPanel();
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		
+		JPanel panel1 = new JPanel();
+		panel1.add(Box.createRigidArea(new Dimension(50, 80)));
+		panel1.add(listaFaktur);
+		panel1.setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		kolumny = new String[] { "Kod Produktu", "Nazwa Produktu", "Iloœæ", "Cena netto", "Vat", "Wartoœæ brutto" };
+		// wiersze tabeli
+		wiersze = new Object[][] {};
+		tableFakt = new JTable(wiersze, kolumny);
+		tableModel = new DefaultTableModel(wiersze, kolumny) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
+		tableFakt.setModel(tableModel);
+		JScrollPane panel8 = new JScrollPane(tableFakt, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+		
+		panel.add(panel1);
+		frame.add(panel);
+		
+		pack();
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Suma {
+
+	public static void main(String[] args) {
+
+		long suma = 0l;
+		System.out.println("Podaj liczbê n: ");
+		Scanner odczyt = new Scanner(System.in);
+		long n = odczyt.nextInt();
+		for (long i = 0; i <= n; i++) {
+			suma += i;
+		}
+		System.out.println("Suma liczb od 1 do " + n + " wynosi: " + suma);
+	}
+
+}

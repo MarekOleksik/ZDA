@@ -1,0 +1,39 @@
+
+public class Produkty {
+	private static String kodProduktu;
+	private static String nazwaProduktu;
+	private static String ilosc;
+	private static String cenaNetto;
+	private static String vat;
+
+	public Produkty() {
+	};
+
+	public Produkty(String kodProduktu, String nazwaProduktu, String ilosc, String cenaNetto, String vat) {
+		this.kodProduktu = kodProduktu;
+		this.nazwaProduktu = nazwaProduktu;
+		this.ilosc = ilosc;
+		this.cenaNetto = cenaNetto;
+		this.vat = vat;
+	}
+
+	public String getNazwaProduktu() {
+		return nazwaProduktu;
+	}
+
+	public String getKodProduktu() {
+		return kodProduktu;
+	}
+	
+	public String getIlosc() {
+		return ilosc;
+	}
+	
+	public String getCenaNetto() {
+		return cenaNetto;
+	}
+	
+	public String getVat() {
+		return vat;
+	}
+}
