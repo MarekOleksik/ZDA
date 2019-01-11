@@ -17,9 +17,9 @@ import javax.swing.table.DefaultTableModel;
 
 public class OknoFaktury extends JFrame {
 
-	public static void main(String[] args) {
-		new OknoFaktury();
-	}
+	//public static void main(String[] args) {
+	//	new OknoFaktury();
+	//}
 	
 	private String[] kolumny;
 	private Object[][] wiersze;
@@ -33,7 +33,7 @@ public class OknoFaktury extends JFrame {
 		
 		JFrame.setDefaultLookAndFeelDecorated(true);
 		JFrame frame = new JFrame("Program do wystawiania faktur");
-		frame.setSize(700, 750);
+		frame.setSize(800, 750);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 

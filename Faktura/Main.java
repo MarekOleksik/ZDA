@@ -13,7 +13,6 @@ import javax.swing.JComponent;
 public class Main extends JFrame {
 
 	public static void main(String[] args) {
-		new FormularzFaktury();
 		new OknoFaktury();
 	}
 }

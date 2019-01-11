@@ -10,6 +10,7 @@ public class Faktura extends Klient{
 		this.numerFaktury = numerFaktury;
 		this.data = data;
 		this.ogolem = ogolem;
+		this.zamknieta = zamknieta;
 
 	}
 	public Faktura(){}
