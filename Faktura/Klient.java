@@ -17,11 +17,20 @@ public class Klient {
 	public String getNazwisko() {
 		return nazwisko;
 	}
-
+	public void setNazwisko(){
+		this.nazwisko = ("");
+	}
+	
 	public String getImie() {
 		return imie;
 	}
+	public void setImie(){
+		this.imie = ("");
+	}
 	public String getNip(){
 		return nip;
+	}
+	public void setNip(){
+		this.nip = ("");
 	}
 }
